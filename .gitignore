@@ -1,0 +1,60 @@
+# phpstorm project files
+.idea
+
+# netbeans project files
+nbproject
+
+# zend studio for eclipse project files
+.buildpath
+.project
+.settings
+
+# windows thumbnail cache
+Thumbs.db
+
+# composer itself is not needed
+composer.phar
+
+# Mac DS_Store Files
+.DS_Store
+
+# phpunit itself is not needed
+phpunit.phar
+# local phpunit config
+/phpunit.xml
+
+#vagrant folder
+/.vagrant
+
+# Yii runtime
+/assets/*
+**/runtime
+*.data
+/assets/*
+/controlpanel/assets/*
+/uploads
+
+# Yii setting
+/yii2/common/config/db.php
+/yii2/common/config/params.php
+/yii2/frontend/config/main-local.php
+/yii2/backend/config/main-local.php
+/yii2/api/config/main-local.php
+
+# Others
+.env
+/Nginx_1.17_vhost.conf
+.vscode/launch.json
+.vscode
+/demo
+/_receiver.html
+/index.php
+/controlpanel/index.php
+/api/index.php
+/yii2/vendor*
+/robots.txt
+/yii
+/yii_test
+/yii_test.bat
+/Инструкция для запуска проекта.docx
+/Тестовое задание php back middle .docx
