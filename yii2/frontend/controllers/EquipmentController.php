@@ -3,7 +3,7 @@
 namespace frontend\controllers;
 
 use Yii;
-use api\models\Equipment\Equipment;
+use frontend\models\Equipment\EquipmentFront;
 use api\models\Equipment\EquipmentSearch;
 
 /**
@@ -50,17 +50,13 @@ class EquipmentController extends DefaultController
      */
     public function actionCreate()
     {
-        $model = new Equipment();
+        $model = new EquipmentFront();
 
-        if ($model->load(Yii::$app->request->post())) {
-            if ($model->save()) {
-                Yii::$app->session->setFlash('success', Yii::t('frontend', 'Новый тип оборудования успешно добавлен.'));
-                return $this->redirect(['index']);
-            } else {
-                Yii::$app->session->setFlash('error', Yii::t('frontend', 'Произошла ошибка при добавлении типа оборудования.'));
-                return $this->render('create', [
-                    'model' => $model,
-                ]);
+        if(Yii::$app->request->isPost) {
+            $data = Yii::$app->request->post();
+
+            if(!$model->saveNumbers($data)) {
+                Yii::$app->session->setFlash('error', Yii::t('frontend', 'Произошла ошибка при добавлении оборудования.'));
             }
         }
 
@@ -78,11 +74,10 @@ class EquipmentController extends DefaultController
 
         if ($model->load(Yii::$app->request->post())) {
             if ($model->save()) {
-                Yii::$app->session->setFlash('success', Yii::t('frontend', 'Тип оборудования успешно сохранён.'));
+                Yii::$app->session->setFlash('success', Yii::t('frontend', 'Оборудование успешно сохранён.'));
                 return $this->redirect(['update', 'id' => $model->id]);
             } else {
-                var_dump($model->getErrors());
-                Yii::$app->session->setFlash('error', Yii::t('frontend', 'Произошла ошибка при редактировании типа оборудования.'));
+                Yii::$app->session->setFlash('error', Yii::t('frontend', 'Произошла ошибка при редактировании оборудования.'));
             }
         }
 
@@ -99,10 +94,10 @@ class EquipmentController extends DefaultController
         $model = $this->findModel($id);
 
         if ($model->delete()) {
-            Yii::$app->session->setFlash('success', Yii::t('frontend', 'Тип оборудования успешно удалён.'));
+            Yii::$app->session->setFlash('success', Yii::t('frontend', 'Оборудование успешно удалено.'));
             return $this->redirect('index');
         } else {
-            Yii::$app->session->setFlash('error', Yii::t('frontend', 'Возникла ошибка при удалении типа оборудования. Пожалуйста попробуйте ещё раз.'));
+            Yii::$app->session->setFlash('error', Yii::t('frontend', 'Возникла ошибка при удалении оборудования. Пожалуйста попробуйте ещё раз.'));
             return $this->redirect('index');
         }
     }
@@ -112,6 +107,6 @@ class EquipmentController extends DefaultController
      */
     private function findModel($id)
     {
-        return Equipment::findOne($id);
+        return EquipmentFront::findOne($id);
     }
 }

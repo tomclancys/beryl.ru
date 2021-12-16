@@ -105,12 +105,12 @@ class Equipment extends ActiveRecord
             }
 
             if ($badNumber) {
-                $this->addError($attribute, 'Серийный номер уже используется. Пожалуйста проверьте его или введите другой серийный номер.');
+                $this->addError($attribute, 'Серийный номер '. $this->$attribute .' уже используется. Пожалуйста проверьте его или введите другой серийный номер.');
             } else {
                 if (self::checkMask($this->$attribute, $this->type->mask)) {
                     return true;
                 } else {
-                    $this->addError($attribute, 'Введён неверный серийный номер. Пожалуйста проверьте его или введите другой серийный номер.');
+                    $this->addError($attribute, 'Введён неверный серийный номер '. $this->$attribute .'. Пожалуйста проверьте его или введите другой серийный номер.');
                 }
             }
         }
@@ -121,6 +121,7 @@ class Equipment extends ActiveRecord
      */
     public function checkMask($number, $mask)
     {
+        //var_dump($number); exit;
         if (strlen($number) != strlen($mask)) {
             return false;
         }

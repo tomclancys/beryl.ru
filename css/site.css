@@ -125,3 +125,19 @@ a.desc:after {
 .filter-search .row .btn.send {
     margin-right: 2px;
 }
+
+form div.input-info {
+    margin-top: -13px;
+    font-size: 13px;
+    border-radius: 4px;
+    border: 1px solid #ccccccb3;
+    background: #eee;
+    color: #706e6d;
+    padding: 1px 12px;
+}
+
+.required label:after {
+    margin-left: 4px;
+    content: "*";
+    color: red;
+}
