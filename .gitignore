@@ -48,9 +48,6 @@ phpunit.phar
 .vscode
 /demo
 /_receiver.html
-/index.php
-/controlpanel/index.php
-/api/index.php
 /yii2/vendor*
 /robots.txt
 /yii
