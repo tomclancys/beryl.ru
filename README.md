@@ -25,3 +25,7 @@ http://beryl.ru/api/ - API.
 У\yii2\api\models\Ф Ц модели API
 У\yii2\frontend\controllers\Ф - контроллеры дл€ работы frontend
 У\yii2\frontend \views\Ф Ц файлы представлени€ дл€ вывода контента в frontend
+
+#7. “естовое задание
+—сылка на тестовое задание - https://docs.google.com/document/d/1WQuUkYgpGxHqBX5ADBo_6nIlqZqYTz55iJyqi_CPXpg/edit?usp=sharing
+ѕо ссылке можно посмотреть само тестовое задание и описание работы API.
